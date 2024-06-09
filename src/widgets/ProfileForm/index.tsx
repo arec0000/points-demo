@@ -16,10 +16,17 @@ import { getProfileQuery } from "@/entities/profile/queries";
 import { useState } from "react";
 import { AvatarInput } from "@/features/AvatarInput";
 import { PrimaryLayout } from "@/features/Layout";
+import { AxiosError } from "axios";
 
 const schema = z.object({
-  name: z.string(),
-  email: z.string(),
+  name: z
+    .string()
+    .nullable()
+    .transform((v) => v ?? undefined)
+    .pipe(z.string({ required_error: "Введите имя" })),
+  email: z
+    .string({ required_error: "Введите email" })
+    .email("Введите корректный email"),
 });
 
 type Fields = z.infer<typeof schema>;
@@ -31,7 +38,7 @@ export function ProfileForm() {
 
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
 
-  const { data, isPending: isDataPending } = useQuery(getProfileQuery());
+  const { data, isPending: isDataPending, error } = useQuery(getProfileQuery());
 
   const { mutate: logout, isPending: isLogoutPending } = useMutation(
     getLogoutMutation(() => router.push("/")),
@@ -45,7 +52,7 @@ export function ProfileForm() {
       getUpdateAvatarMutation(queryClient, () => setAvatarFile(null)),
     );
 
-  if (!data) {
+  if (error instanceof AxiosError && error.response?.status === 404) {
     notFound();
   }
 
@@ -59,24 +66,26 @@ export function ProfileForm() {
         isDataPending
       }
     >
-      <AvatarInput src={data.avatar} onChange={setAvatarFile} />
+      <AvatarInput src={data?.avatar} onChange={setAvatarFile} />
 
-      <FormBlock
-        buttonText="Изменить"
-        resolver={zodResolver(schema)}
-        defaultValues={data}
-        title="Учетные данные"
-        fields={[
-          { type: "input", name: "name", placeholder: "Имя" },
-          { type: "input", name: "email", placeholder: "e-mail" },
-        ]}
-        onSubmit={(values: Fields) => {
-          updateProfile(values);
-          if (avatarFile) {
-            updateAvatar(avatarFile);
-          }
-        }}
-      />
+      {data && (
+        <FormBlock
+          buttonText="Изменить"
+          resolver={zodResolver(schema)}
+          defaultValues={data as Fields}
+          title="Учетные данные"
+          fields={[
+            { type: "input", name: "name", placeholder: "Имя" },
+            { type: "input", name: "email", placeholder: "e-mail" },
+          ]}
+          onSubmit={(values: Fields) => {
+            updateProfile(values);
+            if (avatarFile) {
+              updateAvatar(avatarFile);
+            }
+          }}
+        />
+      )}
 
       <Button
         text="Выйти из аккаунта"

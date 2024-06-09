@@ -4,8 +4,8 @@ import { z } from "zod";
 export const profileSchema = z.object({
   id: z.number(),
   email: z.string(),
-  name: z.string().optional(),
-  avatar: z.string().optional(),
+  name: z.string().nullable(),
+  avatar: z.string().nullable(),
 });
 
 export type Profile = z.infer<typeof profileSchema>;

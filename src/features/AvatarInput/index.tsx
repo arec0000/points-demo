@@ -9,7 +9,7 @@ export function AvatarInput({
   src,
   onChange,
 }: {
-  src: string | undefined;
+  src: string | undefined | null;
   onChange: (file: File) => void;
 }) {
   const [localFileUrl, setLocalFileUrl] = useState<string>();
