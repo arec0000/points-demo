@@ -1,0 +1,167 @@
+.relative {
+  position: relative;
+}
+
+.hFull {
+  height: 100dvh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.gap_xs {
+  gap: var(--spacing-xs);
+}
+
+.gap_sm {
+  gap: var(--spacing-sm);
+}
+
+.gap_md {
+  gap: var(--spacing-md);
+}
+
+.gap_lg {
+  gap: var(--spacing-lg);
+}
+
+.gap_xl {
+  gap: var(--spacing-xl);
+}
+
+.gap_2xl {
+  gap: var(--spacing-2xl);
+}
+
+.grid_2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mb_2xl {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.mb_xs {
+  margin-bottom: var(--spacing-xs);
+}
+
+.mb_sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb_md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb_lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb_xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mb_2xl {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.auto {
+  color: auto;
+}
+
+.inherit {
+  color: inherit;
+}
+
+.white {
+  color: var(--txt-white);
+}
+
+.black {
+  color: var(--txt-black);
+}
+
+.gray90 {
+  color: var(--txt-gray-90);
+}
+
+.lightBlue {
+  color: var(--txt-light-blue);
+}
+
+.gray70 {
+  color: var(--txt-gray-70);
+}
+
+.gray30 {
+  color: var(--txt-gray-30);
+}
+
+.gray20 {
+  color: var(--txt-gray-20);
+}
+
+.ligthBlue {
+  color: var(--txt-light-blue);
+}
+
+.orange {
+  color: var(--txt-orange);
+}
+
+.blue {
+  color: var(--txt-blue);
+}
+
+.blue30 {
+  color: var(--primary-blue-30);
+}
+
+.red {
+  color: var(--primary-red);
+}
+
+.darkBlue {
+  color: var(--primary-dark-blue);
+}
+
+.darkBlue60 {
+  color: var(--primary-dark-blue-60);
+}
+
+.darkBlue40 {
+  color: var(--primary-dark-blue-40);
+}
+
+.spaceBlue {
+  color: var(--primary-space-blue);
+}
+
+.pink {
+  color: var(--accent-pink);
+}
+
+.purple {
+  color: var(--accent-purple);
+}
+
+.primaryGradient {
+  -webkit-background-clip: text;
+  background-image: var(--primary-gradient);
+
+  color: transparent;
+}

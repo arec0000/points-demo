@@ -1,0 +1,40 @@
+.inputWrapper {
+  width: 100%;
+
+  position: relative;
+}
+
+.input {
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  color: var(--txt-black);
+  font-family: Inter, sans-serif;
+
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 24px;
+
+  cursor: text;
+}
+
+.input__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  color: var(--txt-gray-30);
+
+  transition: all 0.2s;
+}
+
+.input:not(:placeholder-shown) + .input__placeholder,
+.input:focus + .input__placeholder {
+  transform: translateY(-75%);
+  font-size: 0.75rem;
+}

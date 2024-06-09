@@ -1,0 +1,16 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+
+  @media (min-width: 768px) {
+    aspect-ratio: 16/9;
+  }
+}

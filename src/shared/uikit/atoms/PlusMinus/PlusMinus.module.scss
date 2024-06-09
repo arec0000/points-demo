@@ -1,0 +1,65 @@
+.counter {
+  display: flex;
+  width: fit-content;
+  gap: 8px;
+}
+
+.counter__inputWrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 32px;
+
+  border-radius: var(--radius-sm);
+}
+
+.counter__inputWrapper_primary {
+  background-color: var(--background-space-blue);
+}
+
+.counter__inputWrapper_secondary {
+  background-color: var(--user-interface-white);
+}
+
+.counter__input {
+  visibility: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(100%);
+
+  &::-webkit-inner-spin-button {
+    appearance: none;
+
+    margin: 0;
+  }
+}
+
+.counter__inputReplacement {
+  max-width: 36px;
+  overflow: hidden;
+
+  color: var(--txt-black);
+  font-family: var(--font-main);
+  font-size: 1rem;
+
+  cursor: default;
+}
+
+.counter__button {
+  margin: -4px;
+  padding: 4px;
+
+  cursor: pointer;
+
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+    outline: 2px solid var(--primary-blue);
+  }
+}
+
+.counter__button:disabled {
+  cursor: not-allowed;
+}

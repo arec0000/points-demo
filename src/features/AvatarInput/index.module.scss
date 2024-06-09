@@ -1,0 +1,24 @@
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 6.375rem;
+  height: 6.375rem;
+  align-self: center;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--white-005);
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  img {
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  background-color: var(--primary-blue);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.description {
+  opacity: 0.8;
+}
+
+.link {
+  text-decoration: none;
+  text-align: center;
+  padding: 1.125rem;
+  border-radius: var(--radius-md);
+  background-color: var(--white-005);
+}

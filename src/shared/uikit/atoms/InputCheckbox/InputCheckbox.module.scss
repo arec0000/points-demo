@@ -1,0 +1,30 @@
+.checkbox {
+  position: relative;
+  width: 32px;
+  height: 32px;
+
+  border-radius: var(--radius-sm);
+
+  color: var(--primary-blue);
+}
+
+.checkbox__primary {
+  background-color: var(--primary-space-blue);
+}
+
+.checkbox__secondary {
+  background-color: var(--user-interface-white);
+}
+
+.checkbox__input {
+  position: absolute;
+  appearance: none;
+}
+
+.checkbox__mark {
+  opacity: 0;
+}
+
+.checkbox__input:checked + .checkbox__mark {
+  opacity: 1;
+}

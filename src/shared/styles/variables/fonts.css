@@ -1,0 +1,12 @@
+/*
+
+- Нужно исключетельно для корректной работы подсказок в ide (никуда не импортируется)
+- Реальные значения переменных генерирует Next в styles/fonts/index.ts
+- Значения для storybook указаны в .storybook/fonts.css, тк он не подтягивает значения из Next
+
+*/
+
+:root {
+    --font-main: inter, sans-serif;
+    --font-secondary: roboto, sans-serif;
+}

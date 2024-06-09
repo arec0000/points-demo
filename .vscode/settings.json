@@ -1,0 +1,16 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "yaml.schemas": {
+    "./src/shared/api/content/schemas/publishedArticles.schema.json": "publishedArticles.yaml",
+    "./src/shared/api/content/schemas/articleDashboard.schema.json": "articleDashboard.yaml",
+    "./src/shared/api/content/schemas/article.schema.json": "article.yaml",
+    "./src/shared/api/content/schemas/quest.schema.json": "quest.yaml",
+    "./src/shared/api/content/schemas/subquest.schema.json": "subquest.yaml",
+    "./src/shared/api/content/schemas/task.schema.json": "task.yaml",
+    "./src/shared/api/content/schemas/storiesList.schema.json": "storiesList.yaml",
+    "./src/shared/api/content/schemas/countryList.schema.json": "countryList.yaml",
+    "./src/shared/api/content/schemas/country.schema.json": "country.yaml",
+    "./src/shared/api/content/schemas/way.schema.json": "way.yaml",
+    "./src/shared/api/content/schemas/onboarding.schema.json": "onboarding.yaml"
+  }
+}

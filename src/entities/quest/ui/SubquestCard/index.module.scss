@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.subquest {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 4px 8px 4px 4px;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--background-white);
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:not(:has(.subquest__icon)) {
+    cursor: default;
+  }
+}
+
+.subquest__icon {
+  transition: transform 0.3s;
+}
+
+.subquest__icon_closed {
+  transform: rotate(90deg);
+}
+
+.subquest__icon_opened {
+  transform: rotate(90deg) rotateY(180deg);
+}
+
+.subquest__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-align: start;
+}
+
+.subquest__tasks {
+  display: flex;
+}

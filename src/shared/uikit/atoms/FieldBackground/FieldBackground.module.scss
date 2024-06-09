@@ -1,0 +1,85 @@
+.fieldBackground {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.fieldBackground:has(input:focus-visible) {
+  outline: 2px solid var(--primary-blue);
+}
+
+.fieldBackground:has(.fieldBackground__details input:focus-visible) {
+  outline: none;
+}
+
+.fieldBackground__main {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.fieldBackground__main:last-child {
+  margin: auto 0;
+}
+
+.fieldBackground__main_spaceBetween {
+  justify-content: space-between;
+}
+
+.fieldBackground__main:has(input[type="radio"], input[type="checkbox"]) {
+  cursor: pointer;
+}
+
+.fieldBackground__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+// Variants
+
+.field {
+  min-height: 4.125rem;
+
+  padding: 1rem;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--user-interface-white);
+}
+
+.subfield {
+  min-height: 3.875rem;
+
+  padding: 0.75rem;
+
+  border-radius: var(--radius-md);
+
+  background-color: var(--primary-space-blue);
+}
+
+.field:not(:has(.fieldBackground__details)) {
+  padding: 0;
+
+  .fieldBackground__main {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+}
+
+.subfield:not(:has(.fieldBackground__details)) {
+  padding: 0;
+
+  .fieldBackground__main {
+    flex-grow: 1;
+    padding: 0.75rem;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}

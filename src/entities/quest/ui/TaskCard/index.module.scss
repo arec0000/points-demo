@@ -1,0 +1,47 @@
+.task {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    padding: 16px 8px 16px 16px;
+
+    border-radius: var(--radius-lg);
+
+    background-color: var(--background-white);
+
+    text-align: start;
+
+    cursor: pointer;
+}
+
+.task:disabled {
+    cursor: default;
+}
+
+.task__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.task__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task__icon {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+}
+
+.task__specificDate {
+    padding-top: 8px;
+}

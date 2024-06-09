@@ -1,0 +1,27 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.placeholder {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  color: var(--txt-gray-30);
+
+  transform: translateY(-50%);
+
+  transition: all 0.1s;
+
+  pointer-events: none;
+}
+
+.placeholder_top {
+  transform: translateY(-120%);
+  font-size: 0.75rem;
+}

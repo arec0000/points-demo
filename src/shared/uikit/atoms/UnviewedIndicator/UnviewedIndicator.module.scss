@@ -1,0 +1,19 @@
+.unviewedIndicatorField {
+    position: relative;
+    width: max-content;
+}
+
+.unviewedIndicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+
+    transform: translate(6px, -6px);
+
+    border: 2px solid var(--user-interface-white);
+    border-radius: 50%;
+
+    background-color: var(--primary-red);
+}

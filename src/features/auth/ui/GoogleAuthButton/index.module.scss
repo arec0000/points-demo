@@ -1,0 +1,11 @@
+.googleButton {
+  width: 100%;
+}
+
+.googleButtonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-right: 1.375rem;
+}

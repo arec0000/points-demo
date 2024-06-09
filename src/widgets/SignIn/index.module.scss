@@ -1,0 +1,13 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 512px;
+  align-self: center;
+  gap: var(--spacing-xl);
+  flex-grow: 1;
+
+  @media (min-width: 768px) {
+    justify-content: center;
+  }
+}

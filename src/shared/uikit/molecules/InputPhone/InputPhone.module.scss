@@ -1,0 +1,55 @@
+.inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.input__field {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+
+  width: calc(100% - 30px);
+
+  background-color: var(--user-interface-white);
+
+  &_withValue {
+    top: 30px;
+  }
+  cursor: text;
+}
+
+.input__field:focus {
+  top: 30px;
+}
+
+.input__field_disabled {
+  background-color: var(--user-interface-gray-20);
+}
+
+.phoneInput input {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.phoneInput input:focus {
+  border: none !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.input__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 0.75rem;
+  color: var(--txt-gray-30);
+
+  transform: translateY(-82%);
+}

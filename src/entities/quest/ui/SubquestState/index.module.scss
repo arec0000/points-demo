@@ -1,0 +1,16 @@
+.subquestState {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 63px;
+    height: 62px;
+
+    border-radius: 16px;
+
+    background-color: var(--background-space-blue);
+}
+
+.subquestState_blue {
+    background-color: var(--primary-blue);
+}

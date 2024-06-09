@@ -1,0 +1,15 @@
+.notification {
+  display: flex;
+  align-items: start;
+  gap: var(--spacing-sm);
+  overflow: hidden;
+  text-wrap: wrap;
+
+  *:first-child {
+    flex-shrink: 0;
+  }
+}
+
+.text {
+  align-self: center;
+}

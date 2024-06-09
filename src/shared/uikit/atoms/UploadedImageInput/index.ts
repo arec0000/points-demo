@@ -1,0 +1,1 @@
+export { UploadedImageInput } from './UploadedImageInput';

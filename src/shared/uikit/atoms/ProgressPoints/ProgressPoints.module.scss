@@ -1,0 +1,62 @@
+.progress {
+  display: flex;
+
+  &__step {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    flex-grow: 1;
+
+    &:first-child .progress__point:first-child {
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    &:last-child .progress__point:last-child {
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+  }
+
+  &__substeps {
+    position: relative;
+    display: flex;
+    background: var(--background-white);
+  }
+
+  &__point {
+    flex-grow: 1;
+    height: 16px;
+
+    background: var(--background-white);
+  }
+
+  &__point_empty {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background: var(--primary-blue);
+  }
+}
+
+.progress__point_end {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.progress__point_active {
+  background: var(--primary-blue);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.progress__point_passive {
+  background: var(--background-white);
+}
+
+.progress > .progress__step:last-child .progress__substeps {
+  border-radius: 0 16px 16px 0;
+}

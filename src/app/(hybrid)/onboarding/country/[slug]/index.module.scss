@@ -1,0 +1,9 @@
+.thumbnail {
+  position: relative;
+  height: 11.25rem;
+
+  img {
+    border-radius: var(--radius-md);
+    object-fit: cover;
+  }
+}

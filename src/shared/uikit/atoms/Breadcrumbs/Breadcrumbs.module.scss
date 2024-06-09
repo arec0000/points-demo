@@ -1,0 +1,8 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) .breadcrumbs__button {
+    cursor: pointer;
+  }
+}

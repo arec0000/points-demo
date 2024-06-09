@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  background-color: var(--white-005);
+  padding: var(--spacing-lg);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.link {
+  text-decoration: none;
+  text-align: center;
+  padding: 1.125rem;
+  margin-top: var(--spacing-xs);
+}

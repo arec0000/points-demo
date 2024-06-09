@@ -1,0 +1,14 @@
+.link {
+  display: block;
+  padding: 1.125rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--primary-blue);
+
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+}

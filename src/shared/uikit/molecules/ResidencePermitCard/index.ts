@@ -1,0 +1,1 @@
+export { ResidencePermitCard } from './ResidencePermitCard';

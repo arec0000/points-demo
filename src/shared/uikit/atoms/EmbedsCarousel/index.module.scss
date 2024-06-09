@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background-color: var(--white-005);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 1rem var(--spacing-md);
+  text-decoration: none;
+  text-align: center;
+
+  width: 40vw;
+  max-width: 12rem;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  position: relative;
+  height: 5rem;
+  margin: -1.25rem calc(var(--spacing-md) * -1) 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

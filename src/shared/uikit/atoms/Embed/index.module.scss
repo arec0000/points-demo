@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  background-color: var(--white-005);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  padding: var(--spacing-xl);
+}
+
+.thumbnail {
+  position: relative;
+  height: 16rem;
+  margin: calc(var(--spacing-xl) * -1) calc(var(--spacing-xl) * -1) 0;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.tags {
+  display: flex;
+  gap: var(--spacing-sm);
+}

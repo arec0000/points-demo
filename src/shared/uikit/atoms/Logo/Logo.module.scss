@@ -1,0 +1,21 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min-content;
+    padding: 4.88px 8.94px;
+
+    border-radius: 6.36px;
+
+    background: var(--primary-gradient);
+}
+
+.logo__text {
+    color: var(--background-white);
+    font-family: Inter, sans-serif;
+    font-size: 21.409px;
+    font-weight: 900;
+    line-height: normal;
+    text-align: center;
+}

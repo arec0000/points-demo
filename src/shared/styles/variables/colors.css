@@ -1,0 +1,55 @@
+:root {
+    /* Primary */
+    --primary-blue: #4763f1;
+    --primary-blue-30: #c4cdfa;
+    --primary-space-blue: #eff3fb;
+    --primary-dark-blue: #050556;
+    --primary-dark-blue-60: #6c6c8f;
+    --primary-dark-blue-40: #9c9cb2;
+    --primary-red: #f00;
+    --primary-gradient: linear-gradient(
+        135deg,
+        #f58020 4.64%,
+        #b352ff 49.15%,
+        #278bff 96.61%
+    );
+
+    /* Accent */
+    --accent-light-blue: #4ea0ff;
+    --accent-pink: #ff54a6;
+    --accent-purple: #8c62ff;
+    --accent-orange: #ffb35f;
+
+    /* User Interface */
+    --user-interface-white: #fff;
+    --user-interface-black: #000;
+    --user-interface-gray-90: #1b1b1b;
+    --user-interface-gray-70: #666;
+    --user-interface-gray-30: #b7b7b7;
+    --user-interface-gray-20: #cfcfcf;
+
+    /* Background */
+    --background-space-blue: #eff3fb;
+    --background-white: #fff;
+
+    /* Text */
+    --txt-white: #fff;
+    --txt-black: #1b1b1b;
+    --txt-gray-70: #666;
+    --txt-gray-30: #b7b7b7;
+    --txt-gray-20: #cfcfcf;
+    --txt-light-blue: #4ea0ff;
+    --txt-orange: #ffb35f;
+    --txt-blue: #4763f1;
+
+    /* Button non-standard colors */
+    --primary-button-active: #3851d2;
+    --primary-button-active-txt: #d7dcf6;
+
+    /* LEGACY */
+    --white-005: #fefeff; /* white */
+    --blue-005: #f1f7ff; /* light_blue */
+    --txt-color: #050556; /* dark */
+    --shadow-down-s: 0px 8px 32px rgb(60 37 125 / 8%);
+    --shadow-down-m: 0px 15px 28px 8px rgb(60 37 125 / 8%);
+}

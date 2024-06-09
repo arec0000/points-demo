@@ -1,0 +1,10 @@
+.withFixedButton {
+  padding-bottom: 4.75rem;
+}
+
+.button_fixed {
+  position: fixed;
+  right: var(--spacing-lg);
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+}

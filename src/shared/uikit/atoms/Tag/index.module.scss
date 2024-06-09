@@ -1,0 +1,12 @@
+.tag {
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--txt-blue);
+  color: var(--txt-blue);
+  box-sizing: border-box;
+  padding: 0.125rem 1.125rem;
+}
+
+.highlighted {
+  background-color: var(--txt-blue);
+  color: var(--txt-white);
+}

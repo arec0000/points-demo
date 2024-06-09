@@ -1,0 +1,70 @@
+@mixin text($fs, $lh, $fw) {
+  font-family: var(--font-main);
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+
+.mdx {
+  p {
+    @include text(16px, 24px, 400);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  h1 {
+    @include text(28px, 32px, 700);
+    margin-bottom: var(--spacing-md);
+  }
+
+  h2 {
+    @include text(24px, 28px, 700);
+    margin-bottom: var(--spacing-md);
+  }
+
+  h3 {
+    @include text(20px, 24px, 600);
+    margin-bottom: var(--spacing-md);
+  }
+
+  li {
+    @include text(16px, 20px, 500);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  ul {
+    @include text(16px, 24px, 400);
+    margin-left: 19px;
+    margin-bottom: var(--spacing-xl);
+
+    list-style-type: disc;
+  }
+
+  ol {
+    @include text(16px, 24px, 400);
+    margin-left: 19px;
+    margin-bottom: var(--spacing-xl);
+
+    list-style-type: decimal;
+  }
+
+  em {
+    @include text(16px, 24px, 400);
+    font-style: italic;
+  }
+
+  strong {
+    @include text(16px, 24px, 700);
+  }
+
+  a {
+    color: var(--txt-blue);
+  }
+
+  hr {
+    height: 1px;
+    border-radius: 2px;
+    background-color: var(--txt-black);
+    opacity: 0.2;
+    margin-block: var(--spacing-xl);
+  }
+}

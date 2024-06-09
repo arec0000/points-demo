@@ -1,0 +1,100 @@
+@mixin svg-color($color) {
+  path[stroke] {
+    stroke: $color;
+  }
+
+  path[fill] {
+    fill: $color;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.auto {
+  @include svg-color(auto);
+}
+
+.inherit {
+  @include svg-color(currentColor);
+}
+
+.black {
+  @include svg-color(var(--user-interface-black));
+}
+
+.white {
+  @include svg-color(var(--primary-space-blue));
+}
+
+.gray90 {
+  @include svg-color(var(--user-interface-gray-90));
+}
+
+.gray70 {
+  @include svg-color(var(--user-interface-gray-70));
+}
+
+.gray30 {
+  @include svg-color(var(--user-interface-gray-30));
+}
+
+.gray20 {
+  @include svg-color(var(--user-interface-gray-20));
+}
+
+.blue {
+  @include svg-color(var(--primary-blue));
+}
+
+.blue30 {
+  @include svg-color(var(--primary-blue-30));
+}
+
+.red {
+  @include svg-color(var(--primary-red));
+}
+
+.darkBlue {
+  @include svg-color(var(--primary-dark-blue));
+}
+
+.darkBlue60 {
+  @include svg-color(var(--primary-dark-blue-60));
+}
+
+.darkBlue40 {
+  @include svg-color(var(--primary-dark-blue-40));
+}
+
+.spaceBlue {
+  @include svg-color(var(--primary-space-blue));
+}
+
+.lightBlue {
+  @include svg-color(var(--accent-light-blue));
+}
+
+.pink {
+  @include svg-color(var(--accent-pink));
+}
+
+.orange {
+  @include svg-color(var(--accent-orange));
+}
+
+.purple {
+  @include svg-color(var(--accent-purple));
+}
+
+.primaryGradient {
+  @include svg-color(url("#gradient"));
+}
