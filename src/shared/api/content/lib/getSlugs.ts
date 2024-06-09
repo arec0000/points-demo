@@ -6,9 +6,14 @@ export async function getSlugs(
   path: string,
   base = privateConfig.CONTENT_PATH,
 ) {
-  return new Promise<string[]>((res) => {
+  return new Promise<string[]>((res, rej) => {
     fs.readdir(nodePath.join(base, path), (err, files) => {
-      res(files.filter((file) => !file.endsWith(".yaml")));
+      if (err) {
+        console.error(err);
+        rej(err);
+      } else {
+        res(files.filter((file) => !file.endsWith(".yaml")));
+      }
     });
   });
 }
