@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "jest",
     "schemas": "tsx ./scripts/uploadSchemas https://raw.githubusercontent.com/arec0000/points-schemas/main/schemas/ ./src/shared/api/content/schemas",
     "data": "tsx ./scripts/uploadTestData https://raw.githubusercontent.com/arec0000/points-schemas/main/example/ ./src/shared/api/content/data"
   },
@@ -35,12 +36,19 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "json-schema-to-typescript": "^14.0.4",
+    "ts-node": "^10.9.2",
     "tsx": "^4.11.0",
     "typescript": "^5",
     "typescript-plugin-css-modules": "^5.1.0"

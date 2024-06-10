@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Text } from '../Text';
+import { Text } from "../Text";
 
-import classes from './Breadcrumbs.module.scss';
+import classes from "./Breadcrumbs.module.scss";
 
 interface IBreadcrumb {
   text: string;
@@ -31,7 +31,7 @@ export function Breadcrumbs(props: IProps) {
           {index > 0 && index < breadcrumbs.length && (
             <Text
               variant="h4"
-              color={index === activeIndex ? 'black' : 'gray30'}
+              color={index === activeIndex ? "black" : "gray30"}
             >
               &nbsp; / &nbsp;
             </Text>
@@ -42,7 +42,7 @@ export function Breadcrumbs(props: IProps) {
           >
             <Text
               variant="h4"
-              color={index === activeIndex ? 'black' : 'gray30'}
+              color={index === activeIndex ? "black" : "gray30"}
             >
               {breadcrumb.text}
             </Text>
