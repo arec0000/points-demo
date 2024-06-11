@@ -5,6 +5,27 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+export type TextColor =
+  | "auto"
+  | "inherit"
+  | "white"
+  | "black"
+  | "gray90"
+  | "gray70"
+  | "gray30"
+  | "gray20"
+  | "blue"
+  | "blue30"
+  | "darkBlue"
+  | "darkBlue60"
+  | "darkBlue40"
+  | "spaceBlue"
+  | "lightBlue"
+  | "red"
+  | "pink"
+  | "purple"
+  | "orange";
+export type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 export type Color =
   | "auto"
   | "inherit"
@@ -26,7 +47,6 @@ export type Color =
   | "purple"
   | "orange"
   | "primaryGradient";
-export type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 export type StoriesList = {
   steps: {
     url?: string;
@@ -36,7 +56,7 @@ export type StoriesList = {
     duration?: number;
     background?: string;
     overlayBackground?: string;
-    textColor?: Color;
+    textColor?: TextColor;
     padding?: string;
     margin?: string;
     maxWidth?: Size;
@@ -48,7 +68,7 @@ export type StoriesList = {
   labelColor?: Color;
   loop?: boolean;
   crossColor?: Color;
-  textColor?: Color;
+  textColor?: TextColor;
   posterIndex?: number;
   duration?: number;
   background?: string;
