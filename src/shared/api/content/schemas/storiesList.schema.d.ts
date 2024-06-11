@@ -26,6 +26,7 @@ export type Color =
   | "purple"
   | "orange"
   | "primaryGradient";
+export type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 export type StoriesList = {
   steps: {
     url?: string;
@@ -38,6 +39,7 @@ export type StoriesList = {
     textColor?: Color;
     padding?: string;
     margin?: string;
+    maxWidth?: Size;
     justify?: "start" | "center" | "end";
     align?: "stretch" | "start" | "center" | "end";
   }[];
@@ -53,6 +55,7 @@ export type StoriesList = {
   overlayBackground?: string;
   padding?: string;
   margin?: string;
+  maxWidth?: Size;
   justify?: "start" | "center" | "end";
   align?: "stretch" | "start" | "center" | "end";
 }[];

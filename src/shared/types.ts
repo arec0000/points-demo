@@ -26,26 +26,7 @@ declare global {
   interface Window {
     google?: {
       accounts: {
-        id: {
-          PromptMomentNotification: () => void;
-          cancel: () => void;
-          disableAutoSelect: () => void;
-          initialize: () => void;
-          intermediate: () => void;
-          prompt: () => void;
-          renderButton: () => void;
-          revoke: () => void;
-          setLogLevel: () => void;
-          storeCredential: () => void;
-        };
         oauth2: {
-          CodeClient: () => void;
-          GoogleIdentityServicesError: () => void;
-          GoogleIdentityServicesErrorType: () => void;
-          TokenClient: () => void;
-          hasGrantedAllScopes: () => void;
-          hasGrantedAnyScope: () => void;
-          initCodeClient: () => void;
           initTokenClient: (options: {
             client_id?: string;
             scope:

@@ -45,7 +45,11 @@ export function FullscreenStories({
               }}
             >
               <div
-                className={cx(classes.content, textColor && util[textColor])}
+                className={cx(
+                  classes.content,
+                  util[`maxWidth_${step.maxWidth ?? data.maxWidth ?? "xl"}`],
+                  textColor && util[textColor],
+                )}
                 style={{
                   margin: step.margin ?? data.margin,
                   padding: step.padding ?? data.padding,
@@ -88,6 +92,7 @@ export function FullscreenStories({
         onPrevious={onBack}
         onNext={onNext}
         loop={data?.loop}
+        storyContainerStyles={{ background: "none" }}
       />
       <button className={classes.closeButton} onClick={onClose}>
         <Icon32Px

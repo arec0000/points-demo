@@ -1,4 +1,4 @@
-import { Color } from "@/shared/types";
+import { Color, Size } from "@/shared/types";
 
 export type StoriesData = {
   steps: {
@@ -12,6 +12,7 @@ export type StoriesData = {
     textColor?: Color;
     padding?: string;
     margin?: string;
+    maxWidth?: Size;
     justify?: "start" | "center" | "end";
     align?: "stretch" | "start" | "center" | "end";
   }[];
@@ -27,6 +28,7 @@ export type StoriesData = {
   overlayBackground?: string;
   padding?: string;
   margin?: string;
+  maxWidth?: Size;
   justify?: "start" | "center" | "end";
   align?: "stretch" | "start" | "center" | "end";
 }[];

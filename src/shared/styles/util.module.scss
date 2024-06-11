@@ -165,3 +165,27 @@
 
   color: transparent;
 }
+
+.maxWidth_xs {
+  max-width: 20rem; // 320px
+}
+
+.maxWidth_sm {
+  max-width: 24rem; // 384px
+}
+
+.maxWidth_md {
+  max-width: 28rem; // 448px
+}
+
+.maxWidth_lg {
+  max-width: 32rem; // 512px
+}
+
+.maxWidth_xl {
+  max-width: 48rem; // 768px
+}
+
+.maxWidth_2xl {
+  max-width: 64rem; // 1024px
+}
