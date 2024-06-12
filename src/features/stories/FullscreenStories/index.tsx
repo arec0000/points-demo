@@ -103,6 +103,7 @@ export function FullscreenStories({
                 : item.background ?? data.background,
             justifyContent: item.justify ?? data.justify,
             alignItems: item.align ?? data.align,
+            borderRadius: item.borderRaius ?? data.borderRaius,
           }}
         >
           {data.steps.map((currentItem, i) => (

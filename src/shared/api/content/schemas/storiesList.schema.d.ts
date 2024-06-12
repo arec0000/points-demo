@@ -62,6 +62,7 @@ export type StoriesList = {
     maxWidth?: Size;
     justify?: "start" | "center" | "end";
     align?: "stretch" | "start" | "center" | "end";
+    borderRaius?: string;
   }[];
   card?: {
     label?: string;
@@ -96,4 +97,5 @@ export type StoriesList = {
   maxWidth?: Size;
   justify?: "start" | "center" | "end";
   align?: "stretch" | "start" | "center" | "end";
+  borderRaius?: string;
 }[];
