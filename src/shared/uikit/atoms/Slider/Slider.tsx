@@ -56,27 +56,29 @@ export function Slider({
 
   return (
     <div className={cx(classes.wrapper, wrapperClassName)}>
-      <button
-        className={cx(classes.button, classes.back)}
-        onClick={() => scroll()}
-        tabIndex={-1}
-        disabled={isBackDisabled}
-      >
-        <Icon32Px name="arrowBack" color="white" />
-      </button>
+      {!isBackDisabled && (
+        <button
+          className={cx(classes.button, classes.back)}
+          onClick={() => scroll()}
+          tabIndex={-1}
+        >
+          <Icon32Px name="arrowBack" color="white" />
+        </button>
+      )}
 
       <div className={cx(classes.viewport, className)} ref={emblaRef}>
         <div className={cx(classes.container, innerClassName)}>{children}</div>
       </div>
 
-      <button
-        className={cx(classes.button, classes.next)}
-        onClick={() => scroll(2)}
-        tabIndex={-1}
-        disabled={isNextDisabled}
-      >
-        <Icon32Px name="arrowForward" color="white" />
-      </button>
+      {!isNextDisabled && (
+        <button
+          className={cx(classes.button, classes.next)}
+          onClick={() => scroll(2)}
+          tabIndex={-1}
+        >
+          <Icon32Px name="arrowForward" color="white" />
+        </button>
+      )}
     </div>
   );
 }

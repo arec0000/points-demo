@@ -49,7 +49,7 @@ export type Color =
   | "primaryGradient";
 export type StoriesList = {
   steps: {
-    url?: string;
+    video?: string;
     poster?: string;
     alt?: string;
     mdx?: string;
@@ -63,13 +63,31 @@ export type StoriesList = {
     justify?: "start" | "center" | "end";
     align?: "stretch" | "start" | "center" | "end";
   }[];
-  label?: string;
-  labelLines?: number;
-  labelColor?: Color;
+  card?: {
+    label?: string;
+    labelLines?: number;
+    labelColor?: Color;
+    video?: string;
+    poster?: string;
+    background?: string;
+  };
+  /**
+   * Свойства прогресс бара
+   */
+  progress?: {
+    height?: Size | "xxs";
+    /**
+     * Цвет неактивной части прогресса, по умолчанию серый
+     */
+    inactiveColor?: string;
+    /**
+     * Цвет активной части прогресса, по умолчанию белый
+     */
+    activeColor?: string;
+  };
   loop?: boolean;
   crossColor?: Color;
   textColor?: TextColor;
-  posterIndex?: number;
   duration?: number;
   background?: string;
   overlayBackground?: string;

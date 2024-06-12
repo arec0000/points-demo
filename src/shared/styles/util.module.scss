@@ -189,3 +189,31 @@
 .maxWidth_2xl {
   max-width: 64rem; // 1024px
 }
+
+.height_xxs {
+  height: 2px;
+}
+
+.height_xs {
+  height: var(--spacing-xs);
+}
+
+.height_sm {
+  height: var(--spacing-sm);
+}
+
+.height_md {
+  height: var(--spacing-md);
+}
+
+.height_lg {
+  height: var(--spacing-lg);
+}
+
+.height_xl {
+  height: var(--spacing-xl);
+}
+
+.height_2xl {
+  height: var(--spacing-2xl);
+}

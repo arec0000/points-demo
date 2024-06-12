@@ -1,10 +1,6 @@
-.container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  z-index: 1;
+.progress {
+  position: relative;
+  z-index: 2;
 }
 
 .overlay {
@@ -43,11 +39,30 @@
   }
 }
 
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 1;
+
+  button {
+    flex-grow: 1;
+    cursor: pointer;
+  }
+
+  button:not(:first-child):not(:last-child) {
+    flex-grow: 1.5;
+  }
+}
+
 .closeButton {
   position: absolute;
   top: 1rem;
   right: 0.8rem;
-  z-index: 2000;
+  z-index: 1;
   cursor: pointer;
 
   svg {

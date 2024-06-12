@@ -3,29 +3,37 @@ import classes from "./index.module.scss";
 import { Color } from "@/shared/types";
 
 export function StoriesCard({
-  url,
+  video,
   poster,
+  background,
   label,
   labelLines,
   labelColor,
   onClick,
 }: {
-  url?: string;
+  video?: string;
   poster?: string;
+  background?: string;
   label?: string;
   labelLines?: number;
   labelColor?: Color;
   onClick?: () => void;
 }) {
   return (
-    <button className={classes.container} onClick={onClick}>
+    <button
+      className={classes.container}
+      onClick={onClick}
+      style={{ background }}
+    >
       <video
         className={classes.storiesCard}
-        src={url}
-        poster={poster}
+        src={video}
         muted
         autoPlay
         loop
+        onLoad={() => {
+          console.log("isLoaded");
+        }}
       />
       {label && (
         <Text

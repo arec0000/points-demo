@@ -1,16 +1,20 @@
 "use client";
 
-import Stories from "react-insta-stories";
-
 import classes from "./index.module.scss";
 import { Icon32Px } from "@/shared/uikit/atoms/Icon32Px";
 import { useHadleKeyPress } from "@/shared/lib/useHadleKeyPress";
-import type { Story } from "react-insta-stories/dist/interfaces";
-import { StoriesData } from "../types";
 
 import util from "@/shared/styles/util.module.scss";
 import cx from "clsx";
-import Image from "next/image";
+import { Dialog } from "@/shared/uikit/atoms/Dialog";
+import { useItem } from "@/shared/lib/useItem";
+
+import type { StoriesList } from "@/shared/api/content/schemas/storiesList.schema";
+import { RunningProgress } from "@/shared/uikit/atoms/RunningProgress";
+import { useState } from "react";
+import { Media } from "../Media";
+
+const DEFAULT_DURATION = 5000;
 
 export function FullscreenStories({
   data,
@@ -18,82 +22,111 @@ export function FullscreenStories({
   onNext,
   onClose,
 }: {
-  data: StoriesData[number] | undefined;
+  data: StoriesList[number];
   onNext?: () => void;
   onBack?: () => void;
   onClose?: () => void;
 }) {
-  useHadleKeyPress([
-    { key: "Escape", onKeyDown: onClose },
-    { key: "ArrowRight", onKeyDown: onNext },
-    { key: "l", onKeyDown: onNext },
-    { key: "ArrowLeft", onKeyDown: onBack },
-    { key: "j", onKeyDown: onBack },
-  ]);
-
-  const stories = data?.steps.map(
-    (step) =>
-      ({
-        duration: step.duration ?? data.duration,
-        content: () => {
-          const textColor = step.textColor ?? data.textColor;
-          return (
-            <div
-              className={classes.overlay}
-              style={{
-                background: step.overlayBackground ?? data.overlayBackground,
-              }}
-            >
-              <div
-                className={cx(
-                  classes.content,
-                  util[`maxWidth_${step.maxWidth ?? data.maxWidth ?? "xl"}`],
-                  textColor && util[textColor],
-                )}
-                style={{
-                  margin: step.margin ?? data.margin,
-                  padding: step.padding ?? data.padding,
-                  background:
-                    step.url || step.poster
-                      ? undefined
-                      : step.background ?? data.background,
-                  justifyContent: step.justify ?? data.justify,
-                  alignItems: step.align ?? data.align,
-                }}
-              >
-                {step.url ? (
-                  <video src={step.url} poster={step.poster} autoPlay muted />
-                ) : (
-                  step.poster && (
-                    <Image
-                      src={step.poster}
-                      alt={step.alt ?? "Stories"}
-                      fill
-                      sizes="100vw"
-                    />
-                  )
-                )}
-                {step.mdx}
-              </div>
-            </div>
-          );
-        },
-      }) satisfies Story,
+  const [stepsPaused, setStepsPaused] = useState(
+    data.steps.map((step) => Boolean(step.video || step.poster)),
   );
 
+  function stepOnLoad(index: number) {
+    setStepsPaused((v) =>
+      v.map((isPaused, i) => (i === index ? false : isPaused)),
+    );
+  }
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  function toggleIsPaused() {
+    setIsPaused((v) => !v);
+  }
+
+  const { item, index, back, next } = useItem(data.steps, {
+    initialIndex: 0,
+    onItemsStart: onBack,
+    onItemsEnd: onNext,
+  });
+
+  useHadleKeyPress([
+    { key: "Escape", onKeyDown: onClose },
+    { key: "ArrowRight", onKeyDown: next },
+    { key: "l", onKeyDown: next },
+    { key: "ArrowLeft", onKeyDown: back },
+    { key: "j", onKeyDown: back },
+    { key: "k", onKeyDown: toggleIsPaused },
+    { key: " ", onKeyDown: toggleIsPaused },
+  ]);
+
+  if (!item || index === null) {
+    return null;
+  }
+
+  const textColor = item.textColor ?? data.textColor;
+
   return (
-    <div className={classes.container}>
-      <Stories
-        stories={stories ?? []}
-        defaultInterval={10000}
-        width="100%"
-        height="100%"
-        onAllStoriesEnd={data?.loop ? undefined : onClose}
-        onPrevious={onBack}
-        onNext={onNext}
-        loop={data?.loop}
-        storyContainerStyles={{ background: "none" }}
+    <Dialog isOpen onClose={onClose}>
+      <RunningProgress
+        className={classes.progress}
+        index={index}
+        count={data.steps.length}
+        duration={data.steps.map(
+          (step) => step.duration ?? data.duration ?? DEFAULT_DURATION,
+        )}
+        isPaused={isPaused || stepsPaused[index]}
+        onNext={next}
+        height={data.progress?.height}
+        inactiveColor={data.progress?.inactiveColor}
+        activeColor={data.progress?.activeColor}
       />
+
+      <div
+        className={classes.overlay}
+        style={{
+          background: item.overlayBackground ?? data.overlayBackground,
+        }}
+      >
+        <div
+          className={cx(
+            classes.content,
+            util[`maxWidth_${item.maxWidth ?? data.maxWidth ?? "xl"}`],
+            textColor && util[textColor],
+          )}
+          style={{
+            margin: item.margin ?? data.margin,
+            padding: item.padding ?? data.padding,
+            background:
+              item.video || item.poster
+                ? undefined
+                : item.background ?? data.background,
+            justifyContent: item.justify ?? data.justify,
+            alignItems: item.align ?? data.align,
+          }}
+        >
+          {data.steps.map((currentItem, i) => (
+            <Media
+              key={i}
+              video={currentItem.video}
+              poster={currentItem.poster}
+              alt={currentItem.alt ?? "Story"}
+              sizes="100vw"
+              isHidden={i !== index}
+              isPaused={isPaused}
+              onLoad={() => stepOnLoad(i)}
+            >
+              {currentItem.mdx}
+            </Media>
+          ))}
+        </div>
+      </div>
+
+      <div className={classes.controls}>
+        <button onClick={back} tabIndex={-1} />
+        <button onClick={toggleIsPaused} tabIndex={-1} />
+        <button onClick={next} tabIndex={-1} />
+      </div>
+
       <button className={classes.closeButton} onClick={onClose}>
         <Icon32Px
           name="cross"
@@ -101,6 +134,6 @@ export function FullscreenStories({
           style={{ width: "3rem", height: "3rem" }}
         />
       </button>
-    </div>
+    </Dialog>
   );
 }
