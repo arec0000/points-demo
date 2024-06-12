@@ -22,21 +22,6 @@
   flex-direction: column;
   z-index: 1;
   overflow: hidden;
-
-  video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-  }
-
-  img {
-    object-fit: cover;
-    z-index: -1;
-  }
 }
 
 .controls {
@@ -51,6 +36,7 @@
   button {
     flex-grow: 1;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   button:not(:first-child):not(:last-child) {

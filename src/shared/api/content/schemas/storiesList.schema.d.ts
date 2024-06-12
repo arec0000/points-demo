@@ -51,6 +51,10 @@ export type StoriesList = {
   steps: {
     video?: string;
     poster?: string;
+    objectPosition?: {
+      x: "left" | "center" | "right";
+      y: "top" | "center" | "bottom";
+    };
     alt?: string;
     mdx?: string;
     duration?: number;
@@ -85,6 +89,10 @@ export type StoriesList = {
      * Цвет активной части прогресса, по умолчанию белый
      */
     activeColor?: string;
+  };
+  objectPosition?: {
+    x: "left" | "center" | "right";
+    y: "top" | "center" | "bottom";
   };
   loop?: boolean;
   crossColor?: Color;

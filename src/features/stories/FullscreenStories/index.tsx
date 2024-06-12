@@ -115,6 +115,7 @@ export function FullscreenStories({
               sizes="100vw"
               isHidden={i !== index}
               isPaused={isPaused}
+              objectPosition={currentItem.objectPosition ?? data.objectPosition}
               onLoad={() => stepOnLoad(i)}
             >
               {currentItem.mdx}

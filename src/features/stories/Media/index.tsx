@@ -2,6 +2,16 @@ import { DoatsLoader } from "@/shared/uikit/atoms/Loader";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import classes from "./index.module.scss";
+
+const PLACEMENT_BY_POSITION: Record<string, string> = {
+  left: "start",
+  right: "end",
+  top: "start",
+  bottom: "end",
+  center: "center",
+};
+
 export function Media({
   video,
   poster,
@@ -11,6 +21,7 @@ export function Media({
   isHidden,
   isPaused,
   onLoad,
+  objectPosition = { x: "center", y: "center" },
   isMuted = true,
   autoPlay = true,
 }: {
@@ -22,6 +33,7 @@ export function Media({
   isHidden?: boolean;
   isPaused?: boolean;
   onLoad?: () => void;
+  objectPosition?: { x: string; y: string };
   isMuted?: boolean;
   autoPlay?: boolean;
 }) {
@@ -51,15 +63,24 @@ export function Media({
       <>
         {isLoading && !isHidden && <DoatsLoader withoutBlur />}
 
-        <video
-          src={video}
-          ref={videoRef}
-          poster={poster}
-          autoPlay={isPaused ? false : autoPlay}
-          muted={isMuted}
-          onLoadedData={handleLoad}
-          style={{ opacity: isLoading || isHidden ? 0 : undefined }}
-        />
+        <div
+          className={classes.videoWrapper}
+          style={{
+            opacity: isLoading || isHidden ? 0 : undefined,
+            justifyContent: PLACEMENT_BY_POSITION[objectPosition.x],
+            alignItems: PLACEMENT_BY_POSITION[objectPosition.y],
+          }}
+        >
+          <video
+            className={classes.video}
+            src={video}
+            ref={videoRef}
+            poster={poster}
+            autoPlay={isPaused ? false : autoPlay}
+            muted={isMuted}
+            onLoadedData={handleLoad}
+          />
+        </div>
 
         {!isLoading && !isHidden && children}
       </>
@@ -75,7 +96,11 @@ export function Media({
           fill
           sizes={sizes}
           onLoad={handleLoad}
-          style={{ opacity: isLoading || isHidden ? 0 : undefined }}
+          className={classes.img}
+          style={{
+            opacity: isLoading || isHidden ? 0 : undefined,
+            objectPosition: `${objectPosition.x} ${objectPosition.y}`,
+          }}
         />
 
         {!isLoading && !isHidden && children}
