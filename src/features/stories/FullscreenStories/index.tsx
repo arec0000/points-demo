@@ -47,6 +47,7 @@ export function FullscreenStories({
     initialIndex: 0,
     onItemsStart: onBack,
     onItemsEnd: onNext,
+    loop: data.loop,
   });
 
   useHadleKeyPress([

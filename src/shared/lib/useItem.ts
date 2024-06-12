@@ -6,6 +6,7 @@ export function useItem<T>(
     initialIndex?: number;
     onItemsStart?: () => void;
     onItemsEnd?: () => void;
+    loop?: boolean;
   },
 ) {
   const [index, setIndex] = useState<number | null>(
@@ -31,7 +32,11 @@ export function useItem<T>(
   function next() {
     setIndex((i) => {
       if (i !== null) {
-        return i < items.length - 1 ? i + 1 : null;
+        if (i < items.length - 1) {
+          return i + 1;
+        }
+
+        return options?.loop ? 0 : null;
       }
 
       return 0;
