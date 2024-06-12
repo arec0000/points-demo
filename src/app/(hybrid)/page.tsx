@@ -14,7 +14,7 @@ export default async function Main() {
     ...item,
     steps: item.steps.map((step) => ({
       ...step,
-      mdx: step.mdx && <MdxBlock content={step.mdx} />,
+      mdx: step.mdx && ((<MdxBlock content={step.mdx} />) as unknown as string),
     })),
   }));
 
