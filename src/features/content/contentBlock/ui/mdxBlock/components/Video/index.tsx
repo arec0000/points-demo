@@ -32,7 +32,7 @@ export function Video({
 
   return (
     <div className={classes.block}>
-      <YouTube videoId="OevbMiEGOxY" iframeClassName={classes.video} />
+      <YouTube videoId={id} iframeClassName={classes.video} />
       {description !== undefined && (
         <Text color="gray70" style={{ textAlign }}>
           {description}
