@@ -25,16 +25,7 @@ export function StoriesCard({
       onClick={onClick}
       style={{ background }}
     >
-      <video
-        className={classes.storiesCard}
-        src={video}
-        muted
-        autoPlay
-        loop
-        onLoad={() => {
-          console.log("isLoaded");
-        }}
-      />
+      <video className={classes.storiesCard} src={video} muted autoPlay loop />
       {label && (
         <Text
           className={classes.label}

@@ -32,7 +32,7 @@ export function Media({
   children?: React.ReactNode;
   isHidden?: boolean;
   isPaused?: boolean;
-  onLoad?: () => void;
+  onLoad?: (duration?: number) => void;
   objectPosition?: { x: string; y: string };
   isMuted?: boolean;
   autoPlay?: boolean;
@@ -61,7 +61,11 @@ export function Media({
 
   function handleLoad() {
     setIsLoading(false);
-    onLoad?.();
+    onLoad?.(
+      videoRef.current?.duration !== undefined
+        ? videoRef.current.duration * 1000
+        : undefined,
+    );
   }
 
   if (video) {

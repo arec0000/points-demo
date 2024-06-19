@@ -28,13 +28,17 @@ export function FullscreenStories({
   onBack?: () => void;
   onClose?: () => void;
 }) {
-  const [stepsPaused, setStepsPaused] = useState(
-    data.steps.map((step) => Boolean(step.video || step.poster)),
+  const [metainfo, setMetainfo] = useState<
+    { paused: boolean; duration?: number }[]
+  >(
+    data.steps.map((step) => ({
+      paused: Boolean(step.video || step.poster),
+    })),
   );
 
-  function stepOnLoad(index: number) {
-    setStepsPaused((v) =>
-      v.map((isPaused, i) => (i === index ? false : isPaused)),
+  function stepOnLoad(index: number, duration: number | undefined) {
+    setMetainfo((v) =>
+      v.map((info, i) => (i === index ? { paused: false, duration } : info)),
     );
   }
 
@@ -75,9 +79,13 @@ export function FullscreenStories({
         index={index}
         count={data.steps.length}
         duration={data.steps.map(
-          (step) => step.duration ?? data.duration ?? DEFAULT_DURATION,
+          (step, i) =>
+            step.duration ??
+            data.duration ??
+            metainfo[i].duration ??
+            DEFAULT_DURATION,
         )}
-        isPaused={isPaused || stepsPaused[index]}
+        isPaused={isPaused || metainfo[index].paused}
         onNext={next}
         height={data.progress?.height}
         inactiveColor={data.progress?.inactiveColor}
@@ -119,7 +127,7 @@ export function FullscreenStories({
               isHidden={i !== index}
               isPaused={isPaused}
               objectPosition={currentItem.objectPosition ?? data.objectPosition}
-              onLoad={() => stepOnLoad(i)}
+              onLoad={(duration) => stepOnLoad(i, duration)}
             >
               {currentItem.mdx}
             </Media>
