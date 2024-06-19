@@ -53,6 +53,12 @@ export function Media({
     }
   }, [isPaused]);
 
+  useEffect(() => {
+    if (!isHidden && videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  }, [isHidden]);
+
   function handleLoad() {
     setIsLoading(false);
     onLoad?.();
