@@ -13,6 +13,7 @@ import type { StoriesList } from "@/shared/api/content/schemas/storiesList.schem
 import { RunningProgress } from "@/shared/uikit/atoms/RunningProgress";
 import { useState } from "react";
 import { Media } from "../Media";
+import { isReservedSize } from "@/shared/lib/isReservedSize";
 
 const DEFAULT_DURATION = 5000;
 
@@ -65,6 +66,7 @@ export function FullscreenStories({
   }
 
   const textColor = item.textColor ?? data.textColor;
+  const maxWidth = item.maxWidth ?? data.maxWidth ?? "xl";
 
   return (
     <Dialog isOpen onClose={onClose}>
@@ -91,12 +93,13 @@ export function FullscreenStories({
         <div
           className={cx(
             classes.content,
-            util[`maxWidth_${item.maxWidth ?? data.maxWidth ?? "xl"}`],
+            isReservedSize(maxWidth) && util[`maxWidth_${maxWidth}`],
             textColor && util[textColor],
           )}
           style={{
             margin: item.margin ?? data.margin,
             padding: item.padding ?? data.padding,
+            maxWidth: !isReservedSize(maxWidth) ? maxWidth : undefined,
             background:
               item.video || item.poster
                 ? undefined

@@ -25,7 +25,6 @@ export type TextColor =
   | "pink"
   | "purple"
   | "orange";
-export type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 export type Color =
   | "auto"
   | "inherit"
@@ -47,6 +46,7 @@ export type Color =
   | "purple"
   | "orange"
   | "primaryGradient";
+export type Size = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 export type StoriesList = {
   steps: {
     video?: string;
@@ -63,7 +63,7 @@ export type StoriesList = {
     textColor?: TextColor;
     padding?: string;
     margin?: string;
-    maxWidth?: Size;
+    maxWidth?: string;
     justify?: "start" | "center" | "end";
     align?: "stretch" | "start" | "center" | "end";
     borderRaius?: string;
@@ -102,7 +102,7 @@ export type StoriesList = {
   overlayBackground?: string;
   padding?: string;
   margin?: string;
-  maxWidth?: Size;
+  maxWidth?: string;
   justify?: "start" | "center" | "end";
   align?: "stretch" | "start" | "center" | "end";
   borderRaius?: string;
