@@ -21,12 +21,6 @@ export function ProgressPoints({ steps }: IProps) {
         <div className={classes.progress__step} key={i}>
           <div className={classes.progress__substeps}>
             {renderSubSteps(step.count, step.progress)}
-
-            {step.progress === step.count && (
-              <div className={classes.progress__point_end}>
-                <MarkSvg />
-              </div>
-            )}
           </div>
 
           <Text color={step.progress ? "black" : "gray70"}>{step.title}</Text>
@@ -37,10 +31,14 @@ export function ProgressPoints({ steps }: IProps) {
 }
 
 function renderSubSteps(count: number, progress = 0) {
-  const subItems = [];
-
   if (progress === 0) {
     return <div className={classes.progress__point_empty} />;
+  }
+
+  const subItems = [];
+
+  if (progress > count) {
+    progress = count;
   }
 
   for (let i = 1; i <= count; i += 1) {
@@ -48,9 +46,18 @@ function renderSubSteps(count: number, progress = 0) {
       <div
         key={i}
         className={cx(classes.progress__point, {
-          [classes.progress__point_active]: i <= progress,
+          [classes.progress__point_active]: i < progress,
+          [classes.progress__point_tail]: i === progress,
         })}
       />,
+    );
+  }
+
+  if (progress === count) {
+    subItems.push(
+      <div className={classes.progress__point_end}>
+        <MarkSvg />
+      </div>,
     );
   }
 
