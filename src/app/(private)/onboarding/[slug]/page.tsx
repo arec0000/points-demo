@@ -1,5 +1,5 @@
 import { onboardingReader } from "@/entities/onboarding/model";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 import { countryReader } from "@/entities/country/model";
 import { getSlugs } from "@/shared/api/content/lib/getSlugs";
 import { COUNTRY_DIR } from "@/entities/country/constants";

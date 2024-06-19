@@ -2,7 +2,7 @@ import { articleDashboardReader } from "@/entities/article/model";
 import { Menu } from "@/features/Menu";
 import { ContentBlockAdapter } from "@/features/content";
 import { renderContentBlock } from "@/features/content/contentBlock";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from '@/features/FullscreenNotice';
 import { Layout } from "@/shared/uikit/atoms/Layout";
 import { Metadata } from "next";
 

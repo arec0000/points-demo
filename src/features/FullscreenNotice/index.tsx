@@ -1,5 +1,6 @@
-import { Text } from "../Text";
-import { icons } from "./assets";
+import Image from "next/image";
+import { Text } from "@/shared/uikit/atoms/Text";
+import { images } from "./assets";
 
 import classes from "./index.module.scss";
 
@@ -10,7 +11,7 @@ export function FullscreenNotice({
   show = true,
   children,
 }: {
-  type: keyof typeof icons;
+  type: keyof typeof images;
   title?: string;
   description?: string;
   show?: boolean;
@@ -20,12 +21,12 @@ export function FullscreenNotice({
     return children;
   }
 
-  const Icon = icons[type];
+  const img = images[type];
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.icon}>
-        <Icon />
+      <div className={classes.image}>
+        <Image src={img.src} alt={img.alt} fill />
       </div>
 
       <div className={classes.textWrapper}>

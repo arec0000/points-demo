@@ -1,4 +1,4 @@
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 import Link from "next/link";
 
 import classes from "./index.module.scss";

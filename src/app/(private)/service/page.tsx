@@ -1,5 +1,5 @@
 import { Menu } from "@/features/Menu";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 import { Layout } from "@/shared/uikit/atoms/Layout";
 
 export default function ServicesPage() {

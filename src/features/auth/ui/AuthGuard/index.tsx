@@ -5,7 +5,7 @@ import { DoatsLoader } from "@/shared/uikit/atoms/Loader";
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { AuthProvider } from "../../context";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 import { Layout } from "@/shared/uikit/atoms/Layout";
 import { AuthRedirect } from "../Redirect";
 

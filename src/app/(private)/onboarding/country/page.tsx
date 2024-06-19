@@ -1,6 +1,6 @@
 import { countryListReader, countryReader } from "@/entities/country/model";
 import { DefaultLayout } from "@/features/Layout";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 import { ProgressBar } from "@/shared/uikit/atoms/ProgressBar";
 import { Text } from "@/shared/uikit/atoms/Text";
 import util from "@/shared/styles/util.module.scss";

@@ -5,14 +5,16 @@
   margin: auto;
 }
 
-.icon {
+.image {
+  position: relative;
   align-self: center;
   flex-shrink: 0;
   width: 100%;
-  max-width: 18rem;
+  max-width: 20rem;
+  aspect-ratio: 1;
 
-  svg {
-    width: 100%;
+  img {
+    object-fit: contain;
   }
 }
 

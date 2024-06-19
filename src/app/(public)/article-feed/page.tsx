@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { articleDashboardReader } from "@/entities/article/model";
 import { ContentBlockAdapter } from "@/features/content";
 import { renderContentBlock } from "@/features/content/contentBlock";
-import { FullscreenNotice } from "@/shared/uikit/atoms/FullscreenNotice";
+import { FullscreenNotice } from "@/features/FullscreenNotice";
 
 export const revalidate = 2;
 
