@@ -5,5 +5,6 @@ export default async function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <AuthGuard redirect={false}>{children}</AuthGuard>;
+  // return <AuthGuard redirect={false}>{children}</AuthGuard>;
+  return children;
 }
