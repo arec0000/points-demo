@@ -58,7 +58,7 @@ export function ProfileForm() {
 
   return (
     <PrimaryLayout
-      title="Переезд"
+      title="Мой профиль"
       isLoading={
         isLogoutPending ||
         isUpdateProfilePending ||
