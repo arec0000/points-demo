@@ -3,6 +3,7 @@ import { Text } from "@/shared/uikit/atoms/Text";
 import classes from "./index.module.scss";
 import { Tag } from "@/shared/uikit/atoms/Tag";
 import Image from "next/image";
+import { Slider } from "@/shared/uikit/atoms/Slider";
 
 export function Article({
   data,
@@ -39,13 +40,13 @@ export function Article({
         </Text>
 
         {data.tags && (
-          <div className={classes.tags}>
+          <Slider>
             {data.tags.map((tag, i) => (
               <Tag key={tag} isHighlighted={i === 0}>
                 {tag}
               </Tag>
             ))}
-          </div>
+          </Slider>
         )}
       </div>
 
