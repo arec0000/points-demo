@@ -20,28 +20,30 @@ export function StoriesCard({
   onClick?: () => void;
 }) {
   return (
-    <button
-      className={classes.container}
-      onClick={onClick}
-      style={{ background }}
-    >
-      <video
-        className={classes.storiesCard}
-        src={video}
-        poster={poster}
-        muted
-        autoPlay
-        loop
-      />
-      {label && (
-        <Text
-          className={classes.label}
-          color={labelColor ?? "white"}
-          maxLines={labelLines}
-        >
-          {label}
-        </Text>
-      )}
-    </button>
+    <div className={classes.wrapper}>
+      <button
+        className={classes.container}
+        onClick={onClick}
+        style={{ background }}
+      >
+        <video
+          className={classes.storiesCard}
+          src={video}
+          poster={poster}
+          muted
+          autoPlay
+          loop
+        />
+        {label && (
+          <Text
+            className={classes.label}
+            color={labelColor ?? "white"}
+            maxLines={labelLines}
+          >
+            {label}
+          </Text>
+        )}
+      </button>
+    </div>
   );
 }
