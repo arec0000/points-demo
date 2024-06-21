@@ -8,12 +8,16 @@
 
 .container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
   cursor: pointer;
   flex-shrink: 0;
   width: 6rem;
   height: 6rem;
   border-radius: 0.75rem;
   background-color: var(--txt-gray-70);
+  overflow: hidden;
 
   outline: none;
 }
@@ -24,8 +28,8 @@
 }
 
 .storiesCard {
-  width: 6rem;
-  height: 6rem;
+  min-width: 100%;
+  min-height: 100%;
   border-radius: 0.75rem;
   object-fit: cover;
 }
